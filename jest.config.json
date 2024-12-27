@@ -1,0 +1,7 @@
+{
+  "transform": {
+    "^.+\\.ts?$": ["ts-jest", { "isolatedModules": true }]
+  },
+  "modulePathIgnorePatterns": ["dist"],
+  "collectCoverage": true
+}
