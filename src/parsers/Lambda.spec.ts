@@ -5,7 +5,7 @@ describe("Lambda", () => {
     "std::function<void()>",
     "std::function<int(int)>",
     "std::function<int(int, char)>",
-    "std::function<int(const int&)>",
+    "std::function<int(const int &)>",
   ])('parses "%s"', (raw) => {
     expect(new Lambda(raw).dump()).toBe(raw);
   });
@@ -34,8 +34,8 @@ describe("Lambda", () => {
       formatted: "int -> char -> int",
     },
     {
-      raw: "std::function<int(const int&)>",
-      formatted: "const int& -> int",
+      raw: "std::function<int(const int &)>",
+      formatted: "const int & -> int",
     },
   ])('formats "$raw" to "$formatted"', ({ raw, formatted }) => {
     expect(new Lambda(raw).format()).toBe(formatted);

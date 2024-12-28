@@ -3,7 +3,7 @@ import { braced } from "../services/strings";
 import { dropLast, isNil } from "ramda";
 
 export class Parameter implements Parser<Parameter> {
-  static pattern = /^(const)?\s*([^\s&*]+)\s*([&*])?\s*([^\s]+)?$/;
+  static pattern = /^(const)?\s*([^\s&*]+)\s*([&*])?\s*([^\s&*]+)?$/;
 
   name: string | null;
   typename: string;
@@ -22,7 +22,10 @@ export class Parameter implements Parser<Parameter> {
             ? { arr: arr.concat(buffer), buffer: null }
             : { arr, buffer };
         },
-        { arr: [], buffer: null },
+        {
+          arr: [],
+          buffer: null,
+        },
       );
 
     return arr;
@@ -52,15 +55,15 @@ export class Parameter implements Parser<Parameter> {
     }
 
     if (this.reference) {
-      tokens.push("&");
+      tokens.push(" ", "&");
     }
 
     if (this.pointer) {
-      tokens.push("*");
+      tokens.push(" ", "*");
     }
 
     if (this.name) {
-      tokens.push(" ", this.name);
+      tokens.push(this.reference || this.pointer ? "" : " ", this.name);
     }
 
     return tokens.join("");
@@ -68,8 +71,8 @@ export class Parameter implements Parser<Parameter> {
 
   format() {
     const dumped = this.dump();
-    return this.name && dumped.endsWith(" " + this.name)
-      ? dropLast(this.name.length + 1, dumped)
+    return this.name && dumped.endsWith(this.name)
+      ? dropLast(this.name.length, dumped).trim()
       : dumped;
   }
 }

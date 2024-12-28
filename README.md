@@ -44,24 +44,24 @@ console.log(signature);
 We can also format the signatures to Haskell style type signatures:
 
 ```ts
-new Signature("int increment(const int& x)").format();
+new Signature("int increment(const int &x)").format();
 ```
 
 ```json
-"const int& -> int"
+"const int & -> int"
 ```
 
 This includes lambda expressions:
 
 ```ts
-new Signature("FA map(const std::function<A(A)>& mapper, FA vec)").format();
+new Signature("FA map(const std::function<A(A)> &mapper, FA vec)").format();
 ```
 
 ```json
 "(A -> A) -> FA -> FA"
 ```
 
-Note we have omitted the `const` and `&` from `const (A -> A)&` for brevity.
+Note we have omitted the `const` and `&` from `const (A -> A) &` for brevity.
 
 ## Installing
 
