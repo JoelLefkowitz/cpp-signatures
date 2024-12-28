@@ -2,7 +2,7 @@
 
 C++ function signature parsers.
 
-![Review](https://img.shields.io/github/actions/workflow/status/JoelLefkowitz/cpp-signatures/review.yml)
+![Review](https://img.shields.io/github/actions/workflow/status/JoelLefkowitz/cpp-signatures/review.yaml)
 ![Version](https://img.shields.io/npm/v/cpp-signatures)
 ![Downloads](https://img.shields.io/npm/dw/cpp-signatures)
 ![Size](https://img.shields.io/bundlephobia/min/cpp-signatures)
