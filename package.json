@@ -1,7 +1,7 @@
 {
   "name": "cpp-signatures",
   "description": "C++ function signature parsers.",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "license": "MIT",
   "author": "Joel Lefkowitz",
   "repository": "https://github.com/joellefkowitz/cpp-signatures",
