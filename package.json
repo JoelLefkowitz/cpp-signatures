@@ -1,5 +1,6 @@
 {
-  "description": "cpp-signatures",
+  "name": "cpp-signatures",
+  "description": "C++ function signature parsers.",
   "version": "0.1.0",
   "license": "MIT",
   "author": "Joel Lefkowitz",
@@ -9,7 +10,12 @@
   "files": [
     "dist"
   ],
-  "keywords": [],
+  "keywords": [
+    "C++",
+    "parsers",
+    "formatters",
+    "signatures"
+  ],
   "packageManager": "yarn@4.1.1",
   "metadata": {
     "publisher": "npm",
