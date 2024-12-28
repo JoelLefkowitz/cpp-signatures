@@ -23,22 +23,20 @@ console.log(signature);
 
 ```json
 {
+  "name": "map",
   "inputs": [
     {
       "name": "mapper",
-      "typename": "std::function<A(A)>",
-      ...
+      "typename": "std::function<A(A)>"
     },
     {
       "name": "vec",
-      "typename": "F",
-      ...
+      "typename": "F"
     }
   ],
   "output": {
     "name": null,
-    "typename": "F",
-    ...
+    "typename": "F"
   }
 }
 ```
@@ -63,7 +61,7 @@ new Signature("FA map(const std::function<A(A)>& mapper, FA vec)").format();
 "(A -> A) -> FA -> FA"
 ```
 
-Note we have ommitted the `const` and `&` from `const (A -> A)&` for brevity.
+Note we have omitted the `const` and `&` from `const (A -> A)&` for brevity.
 
 ## Installing
 
