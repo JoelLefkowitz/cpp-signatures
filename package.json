@@ -1,10 +1,10 @@
 {
-  "description": "",
-  "version": "0.1.0",
+  "description": "cpp-signatures",
+  "version": "0.0.0",
   "license": "MIT",
   "author": "Joel Lefkowitz",
-  "repository": "https://github.com/joellefkowitz/_",
-  "homepage": "https://joellefkowitz.github.io/_",
+  "repository": "https://github.com/joellefkowitz/cpp-signatures",
+  "homepage": "https://joellefkowitz.github.io/cpp-signatures",
   "main": "dist/index.js",
   "files": [
     "dist"
