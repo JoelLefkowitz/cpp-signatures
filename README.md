@@ -6,12 +6,64 @@ C++ function signature parsers.
 ![Version](https://img.shields.io/npm/v/cpp-signatures)
 ![Downloads](https://img.shields.io/npm/dw/cpp-signatures)
 ![Size](https://img.shields.io/bundlephobia/min/cpp-signatures)
-![Quality](https://img.shields.io/codacy/grade/)
-![Coverage](https://img.shields.io/codacy/coverage/)
+![Quality](https://img.shields.io/codacy/grade/b4552a9c503046d399cd1973bb28c286)
+![Coverage](https://img.shields.io/codacy/coverage/b4552a9c503046d399cd1973bb28c286)
 
 ## Motivation
 
-...
+C++ is [really hard](https://en.wikipedia.org/wiki/Most_vexing_parse) to parse. However, we can still use regular expressions to tokenise _some_ common expressions:
+
+```ts
+import { Signature } from "cpp-signatures";
+
+const signature = new Signature("F map(std::function<A(A)> mapper, F vec)");
+
+console.log(signature);
+```
+
+```json
+{
+  "inputs": [
+    {
+      "name": "mapper",
+      "typename": "std::function<A(A)>",
+      ...
+    },
+    {
+      "name": "vec",
+      "typename": "F",
+      ...
+    }
+  ],
+  "output": {
+    "name": null,
+    "typename": "F",
+    ...
+  }
+}
+```
+
+We can also format the signatures to Haskell style type signatures:
+
+```ts
+new Signature("int increment(const int& x)").format();
+```
+
+```json
+"const int& -> int"
+```
+
+This includes lambda expressions:
+
+```ts
+new Signature("FA map(const std::function<A(A)>& mapper, FA vec)").format();
+```
+
+```json
+"(A -> A) -> FA -> FA"
+```
+
+Note we have ommitted the `const` and `&` from `const (A -> A)&` for brevity.
 
 ## Installing
 
