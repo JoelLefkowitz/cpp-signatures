@@ -3,7 +3,7 @@ import { braced } from "../services/strings";
 import { dropLast, isNil } from "ramda";
 
 export class Parameter implements Parser<Parameter> {
-  static pattern = /^(const)?\s*([^\s&*]+)\s*([&*])?\s*([^\s&*]+)?$/;
+  static pattern = /^(const)?\s*([^\s&*<]+(<.*>)?)\s*([&*])?\s*([^\s&*]+)?$/;
 
   name: string | null;
   typename: string;
@@ -38,7 +38,7 @@ export class Parameter implements Parser<Parameter> {
       throw new Error(`Could not parse ${raw}`);
     }
 
-    const [_, constant, typename, pass, name] = groups;
+    const [_, constant, typename, __, pass, name] = groups;
 
     this.name = name ?? null;
     this.typename = typename ?? "";

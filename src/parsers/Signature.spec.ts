@@ -37,6 +37,10 @@ describe("Signature", () => {
       formatted: "(A -> A) -> FA -> FA",
     },
     {
+      raw: "FA map(std::function<A(const A &)> mapper, FA vec)",
+      formatted: "(const A & -> A) -> FA -> FA",
+    },
+    {
       raw: "E map(const std::function<D(A, B, C)> &mapper)",
       formatted: "(A -> B -> C -> D) -> E",
     },
